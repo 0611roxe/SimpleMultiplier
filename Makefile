@@ -1,7 +1,7 @@
 TOP = BoothMultiplier
 MAIN = BoothMultiplier.BoothMultiplierApp
 BUILD_DIR = ./build
-OBJ_DIR = $(BUILD_DIR)/OBJ_DIR
+OBJ_DIR = $(BUILD_DIR)/obj
 TOPNAME = BoothMultiplier
 TOP_V = $(BUILD_DIR)/verilog/$(TOPNAME).v
 
@@ -11,7 +11,7 @@ VERILATOR = verilator
 VERILATOR_COVERAGE = verilator_coverage
 # verilator flags
 VERILATOR_FLAGS += -Wall -MMD --trace --build -cc --exe \
-									 -O3 --x-assign fast --x-initial fast --noassert -report-unoptflat
+									 -O3 --x-assign fast --x-initial fast --noassert -report-unoptflat -Wno-UNUSEDSIGNAL
 
 # timescale set
 VERILATOR_FLAGS += --timescale 1us/1us

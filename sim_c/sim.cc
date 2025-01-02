@@ -70,14 +70,14 @@ void sim_main(int argc, char *argv[]) {
 	int sim_time = 0;
 
 	top->io_in_valid = 1;
-	top->io_in_num_1 = 3;
-	top->io_in_num_2 = 10086;
+	top->io_in_bits_0 = 3;
+	top->io_in_bits_1 = -3;
 	/* main loop */
 	while (top->io_in_valid) {
 		single_cycle();
 		sim_time++;
-		if(top->io_out_ready){
-			printf("simtime:%d\t%d*%d = %d\n", sim_time, top->io_in_num_1, top->io_in_num_2, top->io_out_result);
+		if(top->io_out_valid){
+			printf("simtime:%d\t%d*%d = %d\n", sim_time, top->io_in_bits_0, top->io_in_bits_1, top->io_out_bits);
 			top->io_in_valid = 0;
 		}
 	}
